@@ -1,0 +1,316 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: aqua;
+    margin: 0;
+    padding: 0;
+}
+
+.quiz-app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.quiz-container {
+    width: 42%; 
+    max-width: 600px;
+    background-color: #f0f0f0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    margin: 10px; 
+}
+
+.question-container {
+    margin-bottom: 20px;
+}
+
+#question-number {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#question-text {
+    font-size: 16px; 
+    margin-bottom: 10px;
+}
+
+#options {
+    margin-top: 10px;
+}
+
+.option {
+    background-color: #580c0c;
+    padding: 10px; 
+    margin-bottom: 5px;
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+.option:hover {
+    background-color: #561313;
+}
+
+#timer {
+    margin-top: 10px;
+    background-color: green;
+    color: white;
+    padding: 8px; 
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#progress-bar {
+    height: 8px;
+    background-color: red;
+    margin-bottom: 10px;
+}
+
+.status-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.status-circle {
+    width: 8px; 
+    height: 8px; 
+    border-radius: 50%;
+    margin: 0 3px;
+    border: 1px solid black;
+}
+
+.status-circle.active {
+    background-color: blue;
+}
+
+.status-circle.correct {
+    background-color: green;
+}
+
+.status-circle.wrong {
+    background-color: red;
+}
+
+.hidden {
+    display: none;
+}
+
+#result-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 80%;
+    width: 300px;
+}
+
+#result-popup button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px; 
+}
+
+#instructions {
+    text-align: center;
+    padding: 50px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    max-width: 600px;
+    width: 550px;
+    height: 210px;
+    margin: 20px auto;
+}
+
+#final-result {
+    text-align: center;
+    padding: 50px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+#ready {
+    text-align: center;
+    padding: 50px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+#instructions h2 {
+    font-size: 30px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    color: green;
+}
+
+#ready h2 {
+    font-size: 30px;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    color: green;
+}
+
+#result {
+    font-size: 30px;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    color: yellow;
+}
+
+.instructions p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#instructions button {
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    margin-top: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+#ready button {
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+#final-result button {
+    padding: 10px 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-top: 30px;
+    position: relative; 
+    z-index: 30;
+}
+
+.winner-animation {
+    animation-name: winnerAnimation;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards; 
+}
+
+@keyframes winnerAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#winner-animation-video {
+    position: fixed;
+    top: 17%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    z-index: 10; 
+    display: none;
+    width: 50%;
+    height: auto;
+}
+
+#loser-animation-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; 
+    display: none;
+    width: 50%;
+    height: auto;
+}
+
+.result-overlay {
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 20;
+    color: white;
+    font-size: 24px;
+}
+
+.result {
+    margin-bottom: 10px;
+}
+
+.pass-fail {
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+/* History Container Styles */
+#history-container {
+    text-align: left;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    max-width: 600px;
+    margin: 20px auto;
+    display: none; /* Initially hidden */
+}
+
+#history-container.active {
+    display: block; /* Display when active */
+}
+
+#history-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#history-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.history-item {
+    margin-bottom: 10px;
+}
+
+.history-item.correct {
+    color: green;
+    font-weight: bold;
+}
+
+.history-item.wrong {
+    color: red;
+    font-weight: bold;
+}

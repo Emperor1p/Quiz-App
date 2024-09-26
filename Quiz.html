@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="Quiz.css">
+</head>
+<body>
+    <div class="quiz-app">
+        <!-- Quiz Instructions -->
+        <div id="ready">
+            <h2>Quiz Instructions</h2>
+            <p>Welcome to the quiz! Answer the following questions to test your knowledge.</p>
+            <p>Each question takes 10 seconds.</p>
+            <p>When you don't pick an answer before the time elapses, you miss it.</p>
+            <p>Click the Start button when you're ready.</p>
+            <button onclick="next()">Start Quiz</button>
+        </div>
+
+        <!-- Start Quiz Instructions -->
+        <div id="instructions" class="hidden">
+            <h2>Are you ready?</h2>
+            <div id="countdown" class="countdown"></div>
+            <button onclick="startQuiz()">Start</button>
+        </div>
+
+        <!-- Quiz Container -->
+        <div class="quiz-container hidden" id="quiz-container">
+            <div class="question-container">
+                <div id="progress-bar"></div>
+                <div id="question-number"></div>
+                <div id="question-text"></div>
+                <div id="options"></div>
+                <div id="timer">Time left: 10s</div>
+            </div>
+            <div class="status-container" id="status-container"></div>
+        </div>
+
+        <!-- Final Result Display -->
+        <div id="final-result" class="hidden">
+            <video id="winner-animation-video" class="winner-animation" autoplay loop>
+                <source src="video_2024-07-10_18-45-29.mp4" type="video/mp4">
+            </video>
+            <video id="loser-animation-video" class="loser-animation" autoplay loop>
+                <source src="video_2024-07-10_19-27-41.mp4" type="video/mp4">
+            </video>
+            <div id="result-overlay" class="result-overlay">
+                <div id="result" class="result"></div>
+                <div id="pass-fail" class="pass-fail"></div>
+                <div class="buttons-container">
+                    <button onclick="restartQuiz()">Restart</button>
+                    <!-- <button onclick="toggleHistory()">View History</button> -->
+                </div>
+                <ul id="history-list" class="history-list hidden"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="Quiz.js"></script>
+</body>
+</html>
